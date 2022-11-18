@@ -67,3 +67,11 @@ node index.js
 `npm ln @me/add2` が package.jsonが反映されないのは困るな。
 
 package.jsonのscriptに書いとくとか?
+
+**solved**
+```json
+  "scripts": {
+    "install": "npm @me/add2"
+  }
+```
+と書いとけばよい。`npm i` 直後に ln が実行される。
