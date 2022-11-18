@@ -47,3 +47,23 @@ npm link @me/add2
 use-add2で `npm link @me/add2` の代わりに `npm i ../add2` もできる。
 node_modules/の下にコピーされるし
 package.jsonも書き変わる。
+
+
+## このレポジトリのクローン直後
+
+プロジェクトルートから
+```bash
+cd add2
+npm i
+npm t
+npm ln
+cd ../use-add2
+npm ln @me/add2
+node index.js
+```
+
+## 困る点
+
+`npm ln @me/add2` が package.jsonが反映されないのは困るな。
+
+package.jsonのscriptに書いとくとか?
