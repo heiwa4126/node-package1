@@ -1,15 +1,15 @@
 {
-  "name": "@me/add2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "node_modules/mocha/bin/mocha.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "mocha": "^12.0.0-beta-10"
-  }
+	"name": "@me/add2",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"license": "ISC",
+	"author": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "node_modules/mocha/bin/mocha.js"
+	},
+	"devDependencies": {
+		"mocha": "^12.0.0-beta-10"
+	}
 }

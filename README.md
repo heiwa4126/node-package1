@@ -14,6 +14,7 @@ npm install --save-dev mocha
 ```
 
 add2のpackage.jsonをMocha用に書き換える
+
 ```json
   "scripts": {
     "test": "node_modules/mocha/bin/mocha.js"
@@ -25,22 +26,24 @@ add2のpackage.jsonをMocha用に書き換える
 `npm test` でテスト実行。
 
 `npm link` でリンク作る。確認は
+
 ```bash
 ls -lad ~/.npm-global/lib/node_modules/@me/add2
 ls -la ~/.npm-global/lib/node_modules/@me/add2/
 ```
+
 つまり `npm i -g`と同じような効果があるわけだ。
 
-
 このモジュールを使う側へ移動
+
 ```bash
 cd ../use-add2
 npm link @me/add2
 ```
+
 で node_modules/の下にリンクができる。
 
 `use-add2/index.js` を書く。`node index.js` で実行。
-
 
 あとはコードを一生懸命書く。
 
@@ -48,10 +51,10 @@ use-add2で `npm link @me/add2` の代わりに `npm i ../add2` もできる。
 node_modules/の下にコピーされるし
 package.jsonも書き変わる。
 
-
 ## このレポジトリのクローン直後
 
 プロジェクトルートから
+
 ```bash
 cd add2
 npm i
@@ -69,9 +72,11 @@ node index.js
 package.jsonのscriptに書いとくとか?
 
 **solved**
+
 ```json
   "scripts": {
     "install": "npm @me/add2"
   }
 ```
+
 と書いとけばよい。`npm i` 直後に ln が実行される。
