@@ -10,29 +10,28 @@ npm init --scope=me -y    # "me"は仮
 cd ../use-add
 npm init -y
 cd ../add2
-npm install --save-dev mocha
 ```
 
-add2のpackage.jsonをMocha用に書き換える
+`add2`は Node.js 組み込みの`node:test`でテストする。
 
 ```json
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha.js"
+    "test": "node --test"
   },
 ```
 
-`add2/index.js` と `add2/test/index-test.js` を書く。
+`add2/index.js`と`add2/test/index-test.js`を書く。
 
-`npm test` でテスト実行。
+`npm test`でテスト実行。
 
-`npm link` でリンク作る。確認は
+`npm link`でリンク作る。確認は
 
 ```bash
 ls -lad ~/.npm-global/lib/node_modules/@me/add2
 ls -la ~/.npm-global/lib/node_modules/@me/add2/
 ```
 
-つまり `npm i -g`と同じような効果があるわけだ。
+つまり`npm i -g`と同じような効果があるわけだ。
 
 このモジュールを使う側へ移動
 
@@ -43,13 +42,13 @@ npm link @me/add2
 
 で node_modules/の下にリンクができる。
 
-`use-add2/index.js` を書く。`node index.js` で実行。
+`use-add2/index.js`を書く。`node index.js`で実行。
 
 あとはコードを一生懸命書く。
 
-use-add2で `npm link @me/add2` の代わりに `npm i ../add2` もできる。
+use-add2 で`npm link @me/add2`の代わりに`npm i ../add2`もできる。
 node_modules/の下にコピーされるし
-package.jsonも書き変わる。
+package.json も書き変わる。
 
 ## このレポジトリのクローン直後
 
@@ -67,9 +66,9 @@ node index.js
 
 ## 困る点
 
-`npm ln @me/add2` が package.jsonが反映されないのは困るな。
+`npm ln @me/add2`が package.json が反映されないのは困るな。
 
-package.jsonのscriptに書いとくとか?
+package.json の script に書いとくとか?
 
 **solved**
 
@@ -79,4 +78,4 @@ package.jsonのscriptに書いとくとか?
   }
 ```
 
-と書いとけばよい。`npm i` 直後に ln が実行される。
+と書いとけばよい。`npm i`直後に ln が実行される。

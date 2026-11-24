@@ -1,4 +1,5 @@
-const assert = require("assert");
+const assert = require("node:assert/strict");
+const { describe, it } = require("node:test");
 const { add2 } = require("../index");
 
 describe("test1", () => {
